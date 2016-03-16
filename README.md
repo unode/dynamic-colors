@@ -4,6 +4,7 @@ This is a small tool for changing your terminal colors on the fly.
 
 I use it to switch my entire [tmux](http://tmux.sourceforge.net/) session between [Solarized](http://ethanschoonover.com/solarized) dark and light modes.
 
+NOTE: This is a friendly fork of @sos4nt's hard work. I will get all of this merged back upstream.
 
 ## Pre-requisites
 
@@ -49,7 +50,7 @@ There are 2 options for getting started:
 
     1. Install the package from AUR
 
-          yaourt -S dynamic-colors-git
+            yaourt -S dynamic-colors-git
 
     2. There is no step 2.
 
