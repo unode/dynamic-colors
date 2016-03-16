@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 
 USAGE="Usage: dynamic-colors [help|cycle|init|list|switch <colorscheme>]"
@@ -167,9 +167,9 @@ list () {
 edit () {
   cd "$COLORSCHEMES"
   if [ ${#@} -eq 0 ]; then
-    ${EDITOR:-/usr/bin/vim} .
+    ${EDITOR:-/usr/bin/env vim} .
   else
-    ${EDITOR:-/usr/bin/vim} "${@/%/.sh}"
+    ${EDITOR:-/usr/bin/env vim} "${@/%/.sh}"
   fi
 }
 
