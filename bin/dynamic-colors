@@ -70,11 +70,13 @@ colors=( background foreground cursor mouse_background mouse_foreground highligh
 color_names=( black red green yellow blue magenta cyan white brblack brred brgreen bryellow brblue brmagenta brcyan brwhite )
 
 if [ -z "${DYNAMIC_COLORS_ROOT}" ]; then
-  DYNAMIC_COLORS_ROOT="${HOME}/.dynamic-colors"
+  DYNAMIC_COLORS_ROOT="${XDG_CACHE_HOME:-${HOME}/.cache}/dynamic-colors"
+  DYNAMIC_COLORS_SHARED=/usr/share/dynamic-colors
 else
   DYNAMIC_COLORS_ROOT="${DYNAMIC_COLORS_ROOT%/}"
+  DYNAMIC_COLORS_SHARED="${DYNAMIC_COLORS_ROOT}"
 fi
-COLORSCHEMES="${DYNAMIC_COLORS_ROOT}/colorschemes"
+COLORSCHEMES="${DYNAMIC_COLORS_SHARED}/colorschemes"
 
 write_colorscheme_name () {
   echo "$1" > "${DYNAMIC_COLORS_ROOT}/colorscheme"
