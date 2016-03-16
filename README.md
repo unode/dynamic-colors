@@ -23,17 +23,37 @@ This changes your terminal background color to red if your terminal supports OCS
 
 ## Setup
 
-1. Clone the repository into `~/.dynamic-colors`:
+There are 2 options for getting started:
 
-        git clone https://github.com/sos4nt/dynamic-colors ~/.dynamic-colors
+1. Run from source:
 
-2. To add the tool to your `PATH` put the following line in your profile (`.bashrc`/`.zshrc`/`.profile`).
+  1. Clone the repository into `~/.dynamic-colors`:
 
-        export PATH="$HOME/.dynamic-colors/bin:$PATH"
+          git clone https://github.com/peterhoeg/dynamic-colors ~/.dynamic-colors
 
-3. For autocompletion add this to your profile (`.bashrc`/`.zshrc`/`.profile`). Change .zsh to .bash for bash environments.
+  2. Add a variable pointing to where you cloned the repository:
 
-        source $HOME/.dynamic-colors/completions/dynamic-colors.zsh
+          export DYNAMIC_COLORS_ROOT=$HOME/.dynamic-colors
+
+  3. To add the tool to your `PATH` put the following line in your profile (`.bashrc`/`.zshrc`/`.profile`).
+
+          export PATH="$DYNAMIC_COLORS_ROOT/bin:$PATH"
+
+  4. For autocompletion add this to your profile (`.bashrc`/`.zshrc`/`.profile`). Change .zsh to .bash for bash environments.
+
+          source $HOME/.dynamic-colors/completions/dynamic-colors.zsh
+
+2. Install from your distribution:
+
+  1. Arch Linux
+
+    1. Install the package from AUR
+
+          yaourt -S dynamic-colors-git
+
+    2. There is no step 2.
+
+  2. Others - none that we know of so far.
 
 
 ## Usage
@@ -88,4 +108,3 @@ Add this to ~/.Xdefaults:
 
 Now you can cycle through all color schemes using F12 for example,
 without closing running console applications.
-
