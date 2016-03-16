@@ -72,6 +72,7 @@ color_names=( black red green yellow blue magenta cyan white brblack brred brgre
 if [ -z "${DYNAMIC_COLORS_ROOT}" ]; then
   DYNAMIC_COLORS_ROOT="${XDG_CACHE_HOME:-${HOME}/.cache}/dynamic-colors"
   DYNAMIC_COLORS_SHARED=/usr/share/dynamic-colors
+  test -d $DYNAMIC_COLORS_ROOT || mkdir -p $DYNAMIC_COLORS_ROOT
 else
   DYNAMIC_COLORS_ROOT="${DYNAMIC_COLORS_ROOT%/}"
   DYNAMIC_COLORS_SHARED="${DYNAMIC_COLORS_ROOT}"
