@@ -2,13 +2,19 @@
 
 This is a small tool for changing your terminal colors on the fly.
 
-I use it to switch my entire [tmux](http://tmux.sourceforge.net/) session between [Solarized](http://ethanschoonover.com/solarized) dark and light modes.
+I use it to switch my entire [tmux](http://tmux.sourceforge.net/) session
+between [Solarized](http://ethanschoonover.com/solarized) dark and light modes.
 
-NOTE: This is a friendly fork of @sos4nt's hard work. I will get all of this merged back upstream.
+NOTE: This is a friendly fork of @sos4nt's hard work. I will get all of this
+merged back upstream.
+
+NOTE: You no longer have to set `DYNAMIC_COLORS_ROOT`
 
 ## Pre-requisites
 
-Your terminal must support the appropriate OSC escape sequences. xterm and urxvt (rxvt-unicode) work fine, whereas Terminal.app and iTerm won't recognize these sequences.
+Your terminal must support the appropriate OSC escape sequences. xterm and urxvt
+(rxvt-unicode) work fine, whereas Terminal.app and iTerm won't recognize these
+sequences.
 
 Make sure `dynamicColors` is enabled in `.Xdefaults`/`.Xresources`
 
@@ -32,15 +38,11 @@ There are 2 options for getting started:
 
           git clone https://github.com/peterhoeg/dynamic-colors ~/.dynamic-colors
 
-  2. Add a variable pointing to where you cloned the repository:
+  2. To add the tool to your `PATH` put the following line in your profile (`.bashrc`/`.zshrc`/`.profile`).
 
-          export DYNAMIC_COLORS_ROOT=$HOME/.dynamic-colors
+          export PATH="$HOME/.dynamic-colors/bin:$PATH"
 
-  3. To add the tool to your `PATH` put the following line in your profile (`.bashrc`/`.zshrc`/`.profile`).
-
-          export PATH="$DYNAMIC_COLORS_ROOT/bin:$PATH"
-
-  4. For autocompletion add this to your profile (`.bashrc`/`.zshrc`/`.profile`). Change .zsh to .bash for bash environments.
+  3. For autocompletion add this to your profile (`.bashrc`/`.zshrc`/`.profile`). Change .zsh to .bash for bash environments.
 
           source $HOME/.dynamic-colors/completions/dynamic-colors.zsh
 
@@ -54,7 +56,9 @@ There are 2 options for getting started:
 
     2. There is no step 2.
 
-  2. Others - none that we know of so far.
+  2. NixOS
+
+    1. The derivation is called `dynamic-colors`
 
 
 ## Usage
@@ -73,9 +77,14 @@ Reload last color scheme:
 
 Add this line to your profile to always set the last color scheme.
 
+
 ### Integration
 
-I'm using the provided color schemes in conjunction with [dircolors-solarized](https://github.com/seebi/dircolors-solarized) and [vim-colors-solarized](https://github.com/altercation/vim-colors-solarized) for best results. Always use the dark mode and switch schemes with `dynamic-colors switch <colorscheme>`
+I'm using the provided color schemes in conjunction with
+[dircolors-solarized](https://github.com/seebi/dircolors-solarized) and
+[vim-colors-solarized](https://github.com/altercation/vim-colors-solarized) for
+best results. Always use the dark mode and switch schemes with `dynamic-colors
+switch <colorscheme>`
 
 
 ## Developing color schemes
