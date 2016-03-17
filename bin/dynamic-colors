@@ -170,9 +170,9 @@ list () {
 edit () {
   cd "$COLORSCHEMES"
   if [ ${#@} -eq 0 ]; then
-    ${EDITOR:-/usr/bin/env vim} .
+    ${EDITOR:-vim} .
   else
-    ${EDITOR:-/usr/bin/env vim} "${@/%/.sh}"
+    ${EDITOR:-vim} "${@/%/.sh}"
   fi
 }
 
