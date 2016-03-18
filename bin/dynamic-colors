@@ -86,8 +86,9 @@ if [[ -z "${COLORSCHEMES}" ]] ; then
 fi
 unset color_dir
 
+test -d $DYNAMIC_COLORS_ROOT || mkdir -p $DYNAMIC_COLORS_ROOT
+
 write_colorscheme_name () {
-  test -d $DYNAMIC_COLORS_ROOT || mkdir -p $DYNAMIC_COLORS_ROOT
   echo "$1" > "${DYNAMIC_COLORS_ACTIVE}"
 }
 
