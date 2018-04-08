@@ -1,22 +1,26 @@
-if [[ ! -o interactive ]]; then
-  return
-fi
-
-compctl -K _dynamic_colors dynamic-colors
+#compdef dynamic-colors
 
 _dynamic_colors() {
-  local word words themes
-  read -cA words
-  word=${words[2]}
-
   if [ "${#words}" -eq 2 ]; then
-    reply=(help edit init list switch audit create)
+    local commands
+    commands=('help:print this help message' \
+      'edit:edit \<colorscheme\> or launch editor in colorscheme directory' \
+      'init:(re)load last colorscheme' \
+      'list:list available colorschemes' \
+      'switch:change to given colorscheme' \
+      'audit:check \<colorscheme\> for undefined colors' \
+      'create:create a new colorscheme from scratch')
+    _describe -t commands "dynamic-colors commands" commands "$@"
+   # arguments : ":action:($actions)"
   else
+    word=${words[2]}
     case "$word" in
       switch|edit|audit)
-        themes="$(dynamic-colors list)"
-        reply=("${(ps:\n:)themes}")
+        themes=($(dynamic-colors list))
+        _describe -t themes "available themes" themes "$@"
         ;;
     esac
   fi
 }
+
+_dynamic_colors
