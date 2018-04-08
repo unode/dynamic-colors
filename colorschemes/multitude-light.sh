@@ -20,7 +20,7 @@ border="#cccccc"
 color10="#7cbc8c"  # brgreen
 
  color3="#968a38"  # yellow
-color11="#fff796"  # bryellow
+color11="#d4cd7d"  # bryellow
 
  color4="#414171"  # blue
 color12="#4186be"  # brblue
