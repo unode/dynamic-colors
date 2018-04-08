@@ -51,14 +51,14 @@ send_escape_sequence () {
   # wrap escape sequence when within a TMUX session
   [ ! -z "$TMUX" ] && escape_sequence="${DSC}tmux;${ESC}${escape_sequence}${ESC}\\"
 
-  printf "${escape_sequence}"
+  printf "%b" "${escape_sequence}"
 }
 
 send_osc () {
   Ps=$1
   Pt=$2
   command="$OSC$Ps;$Pt$BEL"
-  send_escape_sequence $command
+  send_escape_sequence "$command"
 }
 
 ESC="\033"
@@ -92,13 +92,13 @@ init () {
 }
 
 unset_colors () {
-  for color in ${colors[@]}; do
+  for color in "${colors[@]}"; do
     unset ${!color}
   done
 }
 
 set_colors () {
-  for color in ${colors[@]}; do
+  for color in "${colors[@]}"; do
     [[ ${!color} ]] && change_color "$color" "${!color}"
   done
 }
@@ -118,8 +118,8 @@ audit () {
   unset_colors
   load_colorscheme "$1"
   declare -a problems
-  for color in ${colors[@]}; do
-    if [ ! ${!color} ]; then
+  for color in "${colors[@]}"; do
+    if [ ! "${!color}" ]; then
       problems=( "${problems[@]}" "\033[4m$color\033[0m is not defined" )
     fi
   done
@@ -176,7 +176,7 @@ edit () {
 create () {
   [ -f "$COLORSCHEMES/$1.sh" ] && die "error: colorscheme '$1' already exists"
   output="# $1\n"
-  for color in ${colors[@]}; do
+  for color in "${colors[@]}"; do
     output+="\n$color=\"\""
     [[ $color == color* ]] && output+=" # ${color_names[${color#color}]}"
   done
